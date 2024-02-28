@@ -1,0 +1,8 @@
+mx\monkeysoft\DAO\UsersDAO.class
+mx\monkeysoft\integracion\ServiceLocator.class
+mx\monkeysoft\persistencia\InterfaceDAO.class
+mx\monkeysoft\persistencia\HibernateUtil.class
+mx\monkeysoft\persistencia\AbstractDAO.class
+test\test.class
+mx\monkeysoft\DAO\ProfesorDAO.class
+mx\monkeysoft\DAO\UnidadaprendizajeDAO.class
