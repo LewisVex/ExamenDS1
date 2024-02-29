@@ -23,10 +23,16 @@
     background-color: #111;
 }
 
+.container {
+    display:flex;
+    justify-content: center;
+    padding:40px;
+    width:auto;
+}
+
 .nav {
-    background-color: blue;
+    background-color: white;
     padding: 15px;
-    margin-bottom: 40px;
 }
 
 body{
@@ -34,4 +40,6 @@ body{
     padding:0;
     box-sizing: border-box;
     font-family: Inter;
+    background-image: url('background.jpg');
 }
+
