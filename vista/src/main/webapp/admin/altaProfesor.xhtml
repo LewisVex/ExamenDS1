@@ -1,30 +1,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
 
-<h:head>
-    <title>Profesor Form</title>
-</h:head>
+    <h:head>
+        <title>Profesor Form</title>
+        <h:outputStylesheet library="css" name="alta.css" />
+        <h:outputStylesheet library="css" name="inter.css" />
+    </h:head>
 
-<h:body>
-    <h2>Profesor Form</h2>
-    <h:form>
+    <h:body>
+        <nav class="nav">
+            <ul class="my-menubar">
+                <li>Home</li>
+                <li>Back</li>
+            </ul>
+        </nav>
+        <h:form>
 
-        <h:outputLabel for="nombre" value="Name:" />
-        <h:inputText id="nombre" value="#{adminBean.profesor.nombre}" />
-        <br/>
+            <h:outputLabel for="nombre" value="Name:" />
+            <h:inputText id="nombre" value="#{adminBean.profesor.nombre}" />
+            <br/>
 
-        <h:outputLabel for="apellido" value="Surname:" />
-        <h:inputText id="apellido" value="#{adminBean.profesor.apellido}" />
-        <br/>
+            <h:outputLabel for="apellido" value="Surname:" />
+            <h:inputText id="apellido" value="#{adminBean.profesor.apellido}" />
+            <br/>
 
-        <h:outputLabel for="rfc" value="RFC:" />
-        <h:inputText id="rfc" value="#{adminBean.profesor.rfc}" />
-        <br/>
+            <h:outputLabel for="rfc" value="RFC:" />
+            <h:inputText id="rfc" value="#{adminBean.profesor.rfc}" />
+            <br/>
 
-        <h:commandButton value="Submit" action="#{adminBean.saveProfesor()}" />
-    </h:form>
-</h:body>
+            <h:commandButton value="Submit" action="#{adminBean.saveProfesor()}" />
+        </h:form>
+    </h:body>
 
 </html>

@@ -1,0 +1,37 @@
+.my-menubar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-menubar li {
+    float: left;
+}
+
+.my-menubar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.my-menubar li a:hover {
+    background-color: #111;
+}
+
+.nav {
+    background-color: blue;
+    padding: 15px;
+    margin-bottom: 40px;
+}
+
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Inter;
+}
