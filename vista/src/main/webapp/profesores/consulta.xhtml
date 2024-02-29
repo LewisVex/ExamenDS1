@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <style>
+            .card {
+                background: white;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            
+            .ui-datatable.table,
+            .ui-datatable.table th,
+            .ui-datatable.table tbody,
+            .ui-datatable.table tr,
+            .ui-datatable.table td {
+                border: none;
+            }
+            
+            .table {
+                padding: 20px;
+                border-radius: 10px;
+            }
+            
+            .ui-datatable.table th {
+                font-size: 20px;
+                background: none;
+                text-align: left;
+            }
+            
+            .ui-datatable.table td {
+                padding: 10px 15px;
+            }
+            
+            .ui-datatable th.ui-sortable-column:hover {
+                background-color: #eee;
+            }
+            
+            .ui-datatable th.ui-state-active {
+                background-color: #eee;
+            }
+            
+            .ui-button.btn-delete {
+                background: hsl(0, 80%, 60%);
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-weight: normal;
+            }
+        </style>
+        <title>Profesores | Consulta</title>
+    </h:head>
+
+    <h:body>
+        <h1>Consulta Profesores</h1>
+        <h:form id="form" class="card">
+            <p:growl id="message" showDetail="true"/>
+            
+            <p:dataTable id="dt-profesores" widgetVar='dtProfesores' var="profesor" sortBy="#{profesor.nombre}" value="#{profesorBean.profesores}" styleClass="table">
+                <p:column sortBy="#{profesor.nombre}" headerText="Nombre" styleClass="table-column">
+                    <h:outputText value="#{profesor.nombre}"/>
+                </p:column>
+                
+                <p:column sortBy="#{profesor.apellido}" headerText="Apellido" styleClass="table-column">
+                    <h:outputText value="#{profesor.apellido}"/>
+                </p:column>
+                
+                <p:column headerText="RFC" styleClass="table-column">
+                    <h:outputText value="#{profesor.rfc}"/>
+                </p:column>
+                
+                <p:column styleClass="table-column">
+                    <a href="#">Unidades de Aprendizaje</a>
+                </p:column>
+                
+                <p:column styleClass="table-column">
+                    <p:commandButton update="form:dt-profesores form:message"
+                                     value="Eliminar" 
+                                     action="#{profesorBean.eliminarProfesor(profesor)}"
+                                     styleClass="btn-delete">
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

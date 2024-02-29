@@ -20,14 +20,14 @@
                 
             }
             
-           
+
             div.login{
                 position: absolute;
                 top:0;
                 bottom: 0;
                 left: 0;
                 right: 0;
-                height: 35%;
+                height: fit-content;
                 width: 25%;
                 padding: 25px;
                 margin: auto;
@@ -45,6 +45,7 @@
                 text-shadow: none;
             }
         </style>
+        <title>Login</title>
     </h:head>
 
     <h:body>
@@ -66,7 +67,7 @@
                         <div class="form-group">
                             <p:password class ="form-control" placeholder="Contraseña: " value="#{loginUI.usuario.contrasena}" />
                         </div>
-                        <p:commandButton update="messages" class = "btn btn-success" value ="Iniciar sesion" actionListener ="#{loginUI.login()}" />
+                        <p:commandButton update="messages" class = "btn btn-success" value ="Iniciar sesion" action="#{loginUI.login()}" />
 
                     </div>
                 </div>
