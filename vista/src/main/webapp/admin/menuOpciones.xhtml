@@ -5,14 +5,81 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Menu Opciones</title>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <style>
+            .pantalla{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                width: 100%;
+                margin: 0;
+            }
+            
+            .pantalla a{
+                text-decoration: none;
+                color: inherit;
+                width: 100%;
+            }
+
+            .opcion{
+                background: #cccccc;
+                border-radius: 5px;
+                text-align: center;
+                width: 80%;
+                height: 90px;
+                margin-bottom: 20px;
+                color: #669257;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                margin-left: auto;
+                margin-right: auto;
+
+            }
+
+            .nombreOpcion{
+                font-size: 38px;
+                font-weight: 800;
+                font-family: 'InterVariable', sans-serif;
+            }
+        </style>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
+        <title>Menu Opciones</title>
+        <h:outputStylesheet library="css" name="inter.css" />
+    </h:head>
+    
+    
+    <h:body>
+
         
-        <div></div>
-        
-    </body>
+        <div id="pantalla" class="pantalla">
+            <h:link outcome="./altaProfesor.xhtml" >
+                <div class="opcion">     
+                    <div class="nombreOpcion">Alta Profesor</div>
+                </div>
+            </h:link>
+            
+            <div class="opcion">
+                <div class="nombreOpcion">Alta Unidad de Aprendizaje </div>
+            </div>
+            
+            <h:link outcome="/profesores/consulta.xhtml" > 
+                <div class="opcion">
+                    <div class="nombreOpcion">Consulta Profesor</div>
+                </div>
+            </h:link>
+            <div class="opcion">
+                <div class="nombreOpcion">Consulta Unidad de Aprendizaje</div>
+            </div>
+        </div>
+     
+    </h:body>
 </html>
