@@ -39,5 +39,4 @@ public class DelegateUsers {
     public void saveUsario(Users usuario){
         ServiceLocator.getInstanceUsersDAO().save(usuario);
     }
-    
 }
