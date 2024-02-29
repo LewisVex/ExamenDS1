@@ -18,15 +18,15 @@
             </f:facet>
             <p:row>
                 <p:column styleClass="celda">Nombre:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.nombre}" /></p:column>
+                <p:column><h:outputText value="#{loginUI.usuario.nombreUsuario}" /></p:column>
             </p:row>
             <p:row>
-                <p:column styleClass="celda">Apellido:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.apellidos}" /></p:column>
+                <p:column styleClass="celda">Correo:</p:column>
+                <p:column><h:outputText value="#{loginUI.usuario.correo}" /></p:column>
             </p:row>
             <p:row>
-                <p:column styleClass="celda">Matricula:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.matricula}" /></p:column>
+                <p:column styleClass="celda">Rol:</p:column>
+                <p:column><h:outputText value="#{loginUI.usuario.rol}" /></p:column>
             </p:row>
         </p:panelGrid>
     </h:body>
@@ -40,18 +40,18 @@
             color:white;
         }
         .txt{
-                position: absolute;
-                top:0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 35%;
-                width: 25%;
-                padding: 25px;
-                margin: auto;
-                background: white;
-                border-radius: 5px;
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 35%;
+            width: 25%;
+            padding: 25px;
+            margin: auto;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             
         }
     </style>

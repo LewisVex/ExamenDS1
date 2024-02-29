@@ -1,2 +1,3 @@
 mx\monkeysoft\helper\LoginHelper.class
 mx\monkeysoft\ui\LoginBeanUI.class
+mx\monkeysoft\ui\ProfesorBean.class
