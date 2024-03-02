@@ -25,9 +25,12 @@
 
 .container {
     display:flex;
+    flex-direction: column;
     justify-content: center;
-    padding:40px;
+    padding:30px;
     width:auto;
+    height:75vh;
+    align-items: center;
 }
 
 .nav {
@@ -43,3 +46,25 @@ body{
     background-image: url('background.jpg');
 }
 
+.form{
+    width:50%;
+    background-color: #eee;
+    border-radius: 20px;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+h2{
+    color: white;
+    font-size: 3rem;
+}
+
+.card{
+    width:100%;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
