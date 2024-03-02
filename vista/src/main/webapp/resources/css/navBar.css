@@ -1,0 +1,41 @@
+.nav {
+    background-color: white;
+    padding: 15px;
+}
+
+.my-menubar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-menubar li {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    float: left;
+    font-family: 'InterVariable', sans-serif;
+    font-size: 15px;
+}
+
+.my-menubar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.signout{
+    width: 50%;
+    margin-right: 10px;
+}
+
+
+img{
+    width: 20%;
+    margin-right: 13px;
+}
