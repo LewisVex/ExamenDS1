@@ -7,20 +7,26 @@
       >
 
     <h:head>
+        <h:outputStylesheet library="css" name="inter.css" />
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <style>
-            
-            *{
-                text-align: center;
-            }
-            .center{
-                float: none;
-                margin: 0 auto;
-                
+            body{
+                background-color: rgba(128, 128, 128, 0.5);
+                background-position: top;
+                background-size: cover;
+                background-image: url('./resources/images/background.jpg');
             }
             
-
+            .overlay-dark{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width:100%;
+                height:100vh;
+                background-color: rgba(128,128,128,0.3);
+            }
+            
             div.login{
                 position: absolute;
                 top:0;
@@ -39,26 +45,49 @@
                 width: 150px;
             }
             .form-control:focus{
-                border-color:#007738;
+                border-color: #007738;
             }
+            
             .btn-success{
                 text-shadow: none;
+                text-align: center;
             }
+            
+            .panel-header{
+                text-align: center;
+            }
+            
+            .panel-body{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            h1{
+              
+                z-index: 9999;
+                padding-top: 50px;
+                text-align: center;
+                font-weight: 600;
+                color: white;
+                font-size: 90px;
+                font-family: 'InterVariable', sans-serif;
+            }
+           
         </style>
         <title>Login</title>
     </h:head>
 
     <h:body>
-        <div class = "row">
-           
-            <h:form>
-               
-                <p:messages id="messages" showDetail="true" closable="true">
-                     
+        <div class="overlay-dark">
+            <h1>Iniciar sesión</h1>
+            <h:form class="formulario">
+                <p:messages id="messages" showDetail="true" closable="true">    
                 </p:messages>
-                <div class="login">
+                    <div class="login">
                     <div class="panel-header">
-                        <p:graphicImage url="resources/uabcl.png" class="logo" />
+                        <p:graphicImage url="resources/MonkeySoft_logo.png" class="logo" />
                     </div>
                     <div class="panel-body">
                         <div class=" form-group">
@@ -67,14 +96,11 @@
                         <div class="form-group">
                             <p:password class ="form-control" placeholder="Contraseña: " value="#{loginUI.usuario.contrasena}" />
                         </div>
-                        <p:commandButton update="messages" class = "btn btn-success" value ="Iniciar sesion" action="#{loginUI.login()}" />
-
+                        
+                        <p:commandButton update="messages" class = "btn btn-success" value ="Acceder" action="#{loginUI.login()}" />
+                        </div>
                     </div>
-                </div>
-                
             </h:form>
-            
         </div>
-            
     </h:body>
 </html>
