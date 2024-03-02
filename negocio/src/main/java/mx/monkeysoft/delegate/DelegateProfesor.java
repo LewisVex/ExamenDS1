@@ -18,7 +18,14 @@ public class DelegateProfesor {
      * @param profesor de tipo usuario con id 0 para que se cree un id nuevo
      */
     public void saveProfesor(Profesor profesor){
-        ServiceLocator.getInstanceProfesorDao().save(profesor);
+        if(profesor.getApellido().length()>20 || profesor.getApellido().length()>20 || profesor.getRfc().length()!=13 ||
+                profesor.getApellido().length()==0 || profesor.getApellido().length()==0){
+            return;
+        }else{
+            
+            ServiceLocator.getInstanceProfesorDao().save(profesor);
+        }
+        
     }
     
 }

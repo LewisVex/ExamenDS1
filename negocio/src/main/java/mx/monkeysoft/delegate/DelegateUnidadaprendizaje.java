@@ -5,6 +5,7 @@
  */
 package mx.monkeysoft.delegate;
 
+import java.util.List;
 import mx.monkeysoft.entidad.Unidadaprendizaje;
 import mx.monkeysoft.integracion.ServiceLocator;
 
@@ -20,5 +21,17 @@ public class DelegateUnidadaprendizaje {
      */
     public void saveUnidadaprendizaje (Unidadaprendizaje UA){
         ServiceLocator.getInstanceUnidadaprendizajeDAO().save(UA);
+    }
+    
+    public Unidadaprendizaje buscarPorNombre(String nombre){
+        Unidadaprendizaje unidad = null;
+        List<Unidadaprendizaje> unidades = ServiceLocator.getInstanceUnidadaprendizajeDAO().findAll();
+        
+        for(Unidadaprendizaje ua: unidades){
+            if(ua.getNombre().compareToIgnoreCase(nombre)==0){
+                unidad = ua;
+            }
+        }
+        return unidad;
     }
 }

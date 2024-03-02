@@ -35,7 +35,7 @@ public class ServiceFacadeLocator {
         return facadeUsuario;
     }
     
-    public static FacadeUnidadaprendizaje getInstanceUnidadaprendizjae(){
+    public static FacadeUnidadaprendizaje getInstanceFacadeUnidadaprendizaje(){
         if(facadeUnidadaprendizaje == null){
             facadeUnidadaprendizaje = new FacadeUnidadaprendizaje();
             return facadeUnidadaprendizaje;

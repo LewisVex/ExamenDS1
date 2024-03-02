@@ -22,4 +22,8 @@ public class FacadeUnidadaprendizaje {
     public void guardarUnidadaprendizaje(Unidadaprendizaje UA){
         delegateUnidadaprendizaje.saveUnidadaprendizaje(UA);
     }
+    
+    public Unidadaprendizaje buscar(String nombre){
+        return delegateUnidadaprendizaje.buscarPorNombre(nombre);
+    }
 }
