@@ -43,13 +43,21 @@ public class LoginBeanUI implements Serializable{
         String appURL = "/profesores/consulta?faces-redirect=true";
         // los atributos de usuario vienen del xhtml 
         Users us= new Users();
+        
         us = loginHelper.Login(usuario.getCorreo(), usuario.getContrasena());
         if(us != null && us.getIdUsuario()!=null){
             // asigno el usuario encontrado al usuario de esta clase para que 
             // se muestre correctamente en la pagina de informacion
             usuario=us;
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Bien:", "Bien"));
-            return appURL;
+            
+            if("admin".equals(usuario.getRol())){
+                return "/admin/menuOpciones?faces-redirect=true";
+            } else if("prof".equals(usuario.getRol())){
+                return "/profesores/consulta?faces-redirect=true";
+            }
+            
+//            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Bien:", "Bien"));
+//            return appURL;
             
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario o contraseña incorrecta:", "Intente de nuevo"));          
@@ -68,16 +76,5 @@ public class LoginBeanUI implements Serializable{
     public void setUsuario(Users usuario) {
         this.usuario = usuario;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
     
 }
