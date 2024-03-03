@@ -5,6 +5,7 @@
  */
 package mx.monkeysoft.facade;
 
+import java.util.List;
 import mx.monkeysoft.delegate.DelegateUnidadaprendizaje;
 import mx.monkeysoft.entidad.Unidadaprendizaje;
 
@@ -21,5 +22,13 @@ public class FacadeUnidadaprendizaje {
     
     public void guardarUnidadaprendizaje(Unidadaprendizaje UA){
         delegateUnidadaprendizaje.saveUnidadaprendizaje(UA);
+    }
+    
+    public Unidadaprendizaje buscar(String nombre){
+        return delegateUnidadaprendizaje.buscarPorNombre(nombre);
+    }
+    
+    public List<Unidadaprendizaje> obtenerUnidadesaprendizaje() {
+        return delegateUnidadaprendizaje.obtenerUnidadesaprendizaje();
     }
 }

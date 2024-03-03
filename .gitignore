@@ -2,3 +2,4 @@
 vista/target/vista-1.0-SNAPSHOT/WEB-INF/classes/mx/monkeysoft/ui/LoginBeanUI.class
 *.war
 *.class
+*.jar

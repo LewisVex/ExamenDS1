@@ -1,0 +1,104 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <style>
+            body{
+                position: relative;
+                background-position: top;
+                background-size: cover;
+                background-image: url('../resources/images/background.jpg');
+                font-family: Inter, sans-serif;
+                padding: 1rem 2rem;
+                margin: 0;
+            }
+            
+            body::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-color: rgba(128, 128, 128, 0.35);
+                z-index: -1;
+            }
+            
+            .title {
+                color: #fff;
+            }
+            
+            .card {
+                max-width: 100%;
+                width: 650px;
+                margin-inline: auto;
+                background: rgba(255, 255, 255, 0.45);
+                border-radius: 5px;
+                backdrop-filter: blur(20px);
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            
+            .ui-datatable.table,
+            .ui-datatable.table table,
+            .ui-datatable.table th,
+            .ui-datatable.table thead,
+            .ui-datatable.table tbody,
+            .ui-datatable.table tr,
+            .ui-datatable.table td {
+                border: none;
+                background: none;
+            }
+            
+            .table {
+                padding: 20px;
+                border-radius: 10px;
+                font-family: inherit;
+            }
+            
+            .ui-datatable.table thead {
+                margin-bottom: 1rem;
+            }
+            
+            .ui-datatable.table th {
+                font-size: 20px;
+                color: black;
+                text-shadow: none;
+                text-align: left;
+                box-shadow: none;
+            }
+            
+            .ui-datatable.table td {
+                padding: 10px 15px;
+                color: black;
+            }
+            
+            .ui-datatable th.ui-sortable-column:hover {
+                background-color: rgba(0, 0, 0, 0.15);
+            }
+            
+            .ui-button.btn-delete {
+                background: hsl(0, 80%, 60%);
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-weight: normal;
+            }
+        </style>
+        <title>Unidades de Aprendizaje</title>
+    </h:head>
+
+    <h:body>
+        <h1 class="title">Unidades de Aprendizaje</h1>
+        <h:form class="card">
+            <p:dataTable id="dt-unidades" widgetVar="dtUnidades" var="unidad" sortBy="#{unidad.nombre}" value="#{unidadAprendizajeBean.unidades}" styleClass="table">
+                <p:column sortBy="#{unidad.nombre}" headerText="Nombre" styleClass="table-column">
+                    <h:outputText value="#{unidad.nombre}"/>
+                </p:column>
+                
+                <p:column styleClass="table-column">
+                    <p:commandLink value="Profesores" 
+                                   action="#{unidadAprendizajeBean.viewUnidadAprendizaje(unidad)}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
