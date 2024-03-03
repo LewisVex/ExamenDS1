@@ -5,8 +5,9 @@
     xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <h:head>
+        <h:outputStylesheet library="css" name="navBarBack.css" />
         <style>
-            body{
+/*           body{
                 position: relative;
                 background-position: top;
                 background-size: cover;
@@ -22,7 +23,25 @@
                 inset: 0;
                 background-color: rgba(128, 128, 128, 0.35);
                 z-index: -1;
+            }*/
+
+             body{
+                background-image: url('#{adminBean.contextPath}/resources/images/background.jpg');
+                background-color: rgba(128, 128, 128, 0.5);
+                background-position: top;
+                background-size: cover;
             }
+
+            .overlay-dark{
+                position: absolute;
+                left:0;
+                top: 0;
+                width:100%;
+                height:100vh;
+                background-color: rgba(52,90,90,0.6);
+            }
+
+           
             
             main {
                 display: flex;
@@ -50,6 +69,7 @@
             }
             
             .title {
+                padding: 1rem 2rem;
                 color: #fff;
             }
             
@@ -64,6 +84,7 @@
             .card {
                 max-width: 100%;
                 width: 650px;
+                margin: 0rem 2rem 0rem 2rem;
             }
             
             .returnLink {
@@ -134,6 +155,14 @@
     </h:head>
 
     <h:body>
+        <div class="overlay-dark">
+
+        <nav class="nav">
+                <ul class="my-menubar">
+                    <li><img src="#{adminBean.contextPath}/resources/images/user-icono.png" class="icono-user"/>Administrador</li>
+                    <li><a href="javascript:history.back()"><img src="#{adminBean.contextPath}/resources/images/back-icono.png" class="icono-back"/></a></li>
+                </ul>
+            </nav>
         <h1 class="title">Profesores Impartiendo - #{unidadAprendizajeBean.unidadAprendizaje.nombre}</h1>
         <main>
             <h:form id="form" class="glass card">
@@ -174,5 +203,6 @@
                 <h:link value="Unidades de Aprendizaje" outcome="/ua/consulta" class="glass returnLink" />
             </aside>
         </main>
+        </div>
     </h:body>
 </html>

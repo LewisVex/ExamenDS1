@@ -77,8 +77,8 @@ and open the template in the editor.
     <h:body>
         <nav class="nav">
             <ul class="my-menubar">
-                <li><img src="#{adminBean.contextPath}/resources/images/user-icono.png"/>Administrador</li>
-                <li><img src="#{adminBean.contextPath}/resources/images/signout-icono.png" class="signout"/></li>
+                <li><img src="#{adminBean.contextPath}/resources/images/user-icono.png" class="icono-user"/>Administrador</li>
+                <li><a href="#" onclick="window.history.go(-1); return false;"><img src="#{adminBean.contextPath}/resources/images/signout-icono.png" class="signout"/></a></li>
             </ul>
         </nav>
         <div class="overlay-dark">

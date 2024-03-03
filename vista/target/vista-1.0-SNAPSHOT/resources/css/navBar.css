@@ -1,6 +1,5 @@
 .nav {
     background-color: white;
-    padding: 15px;
 }
 
 .my-menubar {
@@ -35,7 +34,7 @@
 }
 
 
-img{
+.icono-user{
     width: 20%;
-    margin-right: 13px;
+    margin-right: 13px
 }

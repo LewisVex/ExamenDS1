@@ -1,28 +1,3 @@
-.my-menubar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-}
-
-.my-menubar li {
-    float: left;
-}
-
-.my-menubar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.my-menubar li a:hover {
-    background-color: #111;
-}
-
 .container {
     display:flex;
     flex-direction: column;
@@ -33,19 +8,22 @@
     align-items: center;
 }
 
-.nav {
-    background-color: white;
-    padding: 15px;
-}
-
 body{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    font-family: Inter;
-    background-image: url('background.jpg');
-}
+            background-image: url('#{adminBean.contextPath}/resources/images/background.jpg');
+            background-color: rgba(128, 128, 128, 0.5);
+            background-position: top;
+            background-size: cover;
+        }
 
+.overlay-dark{
+        position: absolute;
+        left:0;
+        top: 0;
+        width:100%;
+        height:100vh;
+        background-color: rgba(52,90,90,0.6);
+    }
+            
 .form{
     width:50%;
     background-color: #eee;

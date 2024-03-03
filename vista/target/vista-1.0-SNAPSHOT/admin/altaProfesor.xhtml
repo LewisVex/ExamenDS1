@@ -9,21 +9,10 @@
         <title>Alta Profesores</title>
         <h:outputStylesheet library="css" name="alta.css" />
         <h:outputStylesheet library="css" name="inter.css" />
+        <h:outputStylesheet library="css" name="navBarBack.css"/>
     </h:head>
 
     <style>
-        body{
-            background-image: url('#{adminBean.contextPath}/resources/images/background.jpg');
-            background-color: rgba(128, 128, 128, 0.5);
-            background-position: top;
-            background-size: cover;
-        }
-
-        .overlay-dark{
-            width:100%;
-            height:100vh;
-            background-color: rgba(52,90,90,0.6);
-        }
 
         .ui-inputfield, .ui-inputtext {
             width: 70%;
@@ -47,17 +36,18 @@
         .ui-button:hover {
             background-color: #1f4521 !important;
         }
+        
     </style>
 
 
     <h:body>
+        <div class="overlay-dark">
         <nav class="nav">
             <ul class="my-menubar">
-                <li>Home</li>
-                <li>Back</li>
+                <li><img src="#{adminBean.contextPath}/resources/images/user-icono.png" class="icono-user"/>Administrador</li>
+                <li> <a href="javascript:history.back()"><img src="#{adminBean.contextPath}/resources/images/back-icono.png" class="icono-back"/></a></li>
             </ul>
         </nav>
-        <div class="overlay-dark">
             <div class="container">
                 <h2>Alta de profesores</h2>
                 <h:form class="form">
