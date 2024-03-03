@@ -31,8 +31,12 @@ public class FacadeProfesor {
         delegateProfesor.saveProfesor(profesor);
     }
     
-    public List<Profesor> obtenerProfesores() {
-        return delegateProfesor.getProfesores();
+    public List<Profesor> obtenerProfesores(int id) {
+        return delegateProfesor.getProfesores(id);
+    }
+    
+    public List<Profesor> obtenerProfesoresStandard(){
+        return delegateProfesor.getProfesoresStandard();
     }
     
     public void eliminarProfesor(Profesor profesor) {

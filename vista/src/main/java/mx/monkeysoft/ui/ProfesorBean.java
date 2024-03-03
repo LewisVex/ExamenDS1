@@ -29,7 +29,7 @@ public class ProfesorBean implements Serializable {
     @PostConstruct
     public void init() {
         profesorHelper = new ProfesorHelper();
-        profesores = profesorHelper.getAll();
+        profesores = profesorHelper.getStandard();
     }
 
     // Getter para la lista de usuarios

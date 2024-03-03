@@ -21,8 +21,12 @@ public class ProfesorHelper implements Serializable {
      * llamara a la instancia de facadeProfesor
      * @return 
      */
-    public List<Profesor> getAll() {
-        return ServiceFacadeLocator.getInstanceFacadeProfesor().obtenerProfesores();
+    
+    public List<Profesor> getStandard(){
+        return(ServiceFacadeLocator.getInstanceFacadeProfesor().obtenerProfesoresStandard());
+    }
+    public List<Profesor> getAll(int id) {
+        return ServiceFacadeLocator.getInstanceFacadeProfesor().obtenerProfesores(id);
     }
     
     public void remove(Profesor profesor) {

@@ -12,11 +12,15 @@ package mx.monkeysoft.persistencia;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import java.util.List;
+import java.util.Map;
 //import mx.avanti.siract.dao.InterfaceDAO;
 import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.transform.Transformers;
 
@@ -76,7 +80,7 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
         }
     }
 
-     @Override
+    @Override
     public void update(T obj) {
         System.out.println("update ----------");
         try {
@@ -90,7 +94,7 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
             HibernateUtil.closeSession();
         }
     }
-    
+
     @Override
     public void delete(T obj) {
         System.out.println("Delete ----------");
@@ -152,22 +156,22 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
     public List<T> executeQuery(String query) {
         System.out.println("ExecuteQuery ----------");
         List<T> result = null;
-            
+
         try {
             HibernateUtil.getSession();
             HibernateUtil.beingTransaccion();
             //System.out.println("ABSTRACTDAO linea 161:"+entityClass.getCanonicalName());
-            result = (List<T>)HibernateUtil.getSession().createSQLQuery(query).addEntity(entityClass.getCanonicalName()).list();
-            
+            result = (List<T>) HibernateUtil.getSession().createSQLQuery(query).addEntity(entityClass.getCanonicalName()).list();
+
         } catch (HibernateException e) {
             HibernateUtil.rollbackTransaction();
         } finally {
             HibernateUtil.closeSession();
         }
-        System.out.println("RESULTADO DE LA VARIABLE result EN ABSTRACTDAO 166:"+result);
+        System.out.println("RESULTADO DE LA VARIABLE result EN ABSTRACTDAO 166:" + result);
         return result;
     }
-    
+
     @Override
     public List<Object[]> executeQueryObjects(String query) {
         System.out.println("ExecuteQueryObjects ----------");
@@ -512,6 +516,31 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
         }
         return result;
     }
-    
-  
+
+    //Método para buscar los profesores en unidad de aprendizaje, hardcodeado para beneficio del proyecto
+    protected List<T> findManyResult(String hql, Map<String, Object> parameters) {
+        List<T> resultList = new ArrayList<>();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            Query query = session.createQuery(hql);
+            if (parameters != null && !parameters.isEmpty()) {
+                for (Map.Entry<String, Object> entry : parameters.entrySet()) {
+                    query.setParameter(entry.getKey(), entry.getValue());
+                }
+            }
+            resultList = query.list();
+            transaction.commit();
+        } catch (RuntimeException e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw e;
+        } finally {
+            session.close();
+        }
+        return resultList;
+    }
+
 }

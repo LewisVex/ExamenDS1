@@ -14,26 +14,23 @@ import mx.monkeysoft.integracion.ServiceLocator;
  * @author monkeysoft
  */
 public class DelegateProfesor {
-    
+
     /**
      * @param profesor de tipo usuario con id 0 para que se cree un id nuevo
      */
-    public void saveProfesor(Profesor profesor){
-        if(profesor.getApellido().length()>20 || profesor.getApellido().length()>20 || profesor.getRfc().length()!=13 ||
-                profesor.getApellido().length()==0 || profesor.getApellido().length()==0){
-            return;
-        }else{
-            
-            ServiceLocator.getInstanceProfesorDao().save(profesor);
-        }
-        
+    public void saveProfesor(Profesor profesor) {
+        ServiceLocator.getInstanceProfesorDao().save(profesor);
     }
-    
-    public List<Profesor> getProfesores() {
-        return ServiceLocator.getInstanceProfesorDao().findAll();
+
+    public List<Profesor> getProfesores(int id) {
+        return ServiceLocator.getInstanceProfesorDao().findProfesoresByUnidadAprendizaje(id);
     }
-    
+
     public void removeProfesor(Profesor profesor) {
         ServiceLocator.getInstanceProfesorDao().delete(profesor);
+    }
+    
+    public List<Profesor> getProfesoresStandard(){
+        return ServiceLocator.getInstanceProfesorDao().findAll();
     }
 }
