@@ -5,6 +5,7 @@
  */
 package mx.monkeysoft.delegate;
 
+import java.util.List;
 import mx.monkeysoft.entidad.Profesor;
 import mx.monkeysoft.integracion.ServiceLocator;
 
@@ -28,6 +29,11 @@ public class DelegateProfesor {
         
     }
     
+    public List<Profesor> getProfesores() {
+        return ServiceLocator.getInstanceProfesorDao().findAll();
+    }
+    
+    public void removeProfesor(Profesor profesor) {
+        ServiceLocator.getInstanceProfesorDao().delete(profesor);
+    }
 }
-
-/*test*/

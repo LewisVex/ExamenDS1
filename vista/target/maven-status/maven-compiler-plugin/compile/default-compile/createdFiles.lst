@@ -1,4 +1,7 @@
 mx\monkeysoft\helper\LoginHelper.class
+mx\monkeysoft\helper\ProfesorHelper.class
+mx\monkeysoft\helper\UnidadaprendizajeHelper.class
 mx\monkeysoft\ui\LoginBeanUI.class
 mx\monkeysoft\ui\AdminBean.class
 mx\monkeysoft\ui\ProfesorBean.class
+mx\monkeysoft\ui\UnidadAprendizajeBean.class

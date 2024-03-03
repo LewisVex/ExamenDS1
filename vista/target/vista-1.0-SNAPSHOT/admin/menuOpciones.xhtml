@@ -77,7 +77,7 @@ and open the template in the editor.
         <nav class="nav">
             <ul class="my-menubar">
                 <li><img src="#{adminBean.contextPath}/resources/images/user-icono.png"/>Administrador</li>
-                <li><img src="#{adminBean.contextPath}/resources/images/signout-icono.png" class="signout"/>/li>
+                <li><img src="#{adminBean.contextPath}/resources/images/signout-icono.png" class="signout"/></li>
             </ul>
         </nav>
         <div class="overlay-dark">
@@ -97,9 +97,11 @@ and open the template in the editor.
                     <div class="nombreOpcion">Consulta Profesor</div>
                 </div>
             </h:link>
-            <div class="opcion">
-                <div class="nombreOpcion">Consulta Unidad de Aprendizaje</div>
-            </div>
+            <h:link outcome="/ua/consulta.xhtml">
+                <div class="opcion">
+                    <div class="nombreOpcion">Consulta Unidad de Aprendizaje</div>
+                </div>
+            </h:link>
         </div>
      </div>
     </h:body>

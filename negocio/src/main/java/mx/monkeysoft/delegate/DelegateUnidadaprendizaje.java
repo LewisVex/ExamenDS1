@@ -34,4 +34,8 @@ public class DelegateUnidadaprendizaje {
         }
         return unidad;
     }
+    
+    public List<Unidadaprendizaje> obtenerUnidadesaprendizaje() {
+        return ServiceLocator.getInstanceUnidadaprendizajeDAO().findAll();
+    }
 }

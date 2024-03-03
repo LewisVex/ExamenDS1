@@ -10,10 +10,10 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import mx.monkeysoft.DAO.ProfesorDAO;
 import mx.monkeysoft.entidad.Profesor;
+import mx.monkeysoft.helper.ProfesorHelper;
 
 /**
  *
@@ -21,15 +21,15 @@ import mx.monkeysoft.entidad.Profesor;
  */
 
 @ManagedBean (name = "profesorBean")
-@ViewScoped
+@SessionScoped
 public class ProfesorBean implements Serializable {
     private List<Profesor> profesores;
-    private ProfesorDAO profesorDAO;
+    private ProfesorHelper profesorHelper;
     
     @PostConstruct
     public void init() {
-        profesorDAO = new ProfesorDAO();
-        profesores = profesorDAO.findAll();
+        profesorHelper = new ProfesorHelper();
+        profesores = profesorHelper.getAll();
     }
 
     // Getter para la lista de usuarios
@@ -39,7 +39,7 @@ public class ProfesorBean implements Serializable {
     
     public void eliminarProfesor(Profesor p) {
         profesores.remove(p);
-        profesorDAO.delete(p);
+        profesorHelper.remove(p);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "El profesor se eliminó correctamente"));
     }
 }

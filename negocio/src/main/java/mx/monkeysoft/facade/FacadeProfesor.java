@@ -5,6 +5,7 @@
  */
 package mx.monkeysoft.facade;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,13 @@ public class FacadeProfesor {
 
     public void guardarProfesor(Profesor profesor) {
         delegateProfesor.saveProfesor(profesor);
+    }
+    
+    public List<Profesor> obtenerProfesores() {
+        return delegateProfesor.getProfesores();
+    }
+    
+    public void eliminarProfesor(Profesor profesor) {
+        delegateProfesor.removeProfesor(profesor);
     }
 }
