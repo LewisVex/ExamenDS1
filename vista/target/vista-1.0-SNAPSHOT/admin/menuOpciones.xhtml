@@ -9,6 +9,8 @@ and open the template in the editor.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
+        <h:outputStylesheet library="css" name="inter.css" />
+        <h:outputStylesheet library="css" name="navBar.css" />
         <style>
             body{
                 margin: 0;
@@ -16,7 +18,7 @@ and open the template in the editor.
                 background-color: rgba(128, 128, 128, 0.5);
                 background-position: top;
                 background-size: cover;
-               overflow: hidden;
+                overflow: hidden;
             }
 
             .overlay-dark{
@@ -68,8 +70,7 @@ and open the template in the editor.
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Menu Opciones</title>
-        <h:outputStylesheet library="css" name="inter.css" />
-        <h:outputStylesheet library="css" name="navBar.css" />
+        
     </h:head>
     
     
@@ -77,7 +78,7 @@ and open the template in the editor.
         <nav class="nav">
             <ul class="my-menubar">
                 <li><img src="#{adminBean.contextPath}/resources/images/user-icono.png"/>Administrador</li>
-                <li><img src="#{adminBean.contextPath}/resources/images/signout-icono.png" class="signout"/>/li>
+                <li><img src="#{adminBean.contextPath}/resources/images/signout-icono.png" class="signout"/></li>
             </ul>
         </nav>
         <div class="overlay-dark">
