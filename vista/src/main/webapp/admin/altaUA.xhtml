@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Alta Unidad de Aprendizaje</title>
+        <h:outputStylesheet library="css" name="alta.css" />
+        <h:outputStylesheet library="css" name="inter.css" />
+        <h:outputStylesheet library="css" name="navBarBack.css"/>
+    </h:head>
+
+    <style>
+
+        .ui-inputfield, .ui-inputtext {
+            width: 70%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+        }
+
+        .ui-button {
+            background: #307132 !important;
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width:40%;
+            min-width: 150px;
+            align-self: center;
+        }
+
+        .ui-button:hover {
+            background-color: #1f4521 !important;
+        }
+        
+    </style>
+
+
+    <h:body>
+        <div class="overlay-dark">
+        <nav class="nav">
+            <ul class="my-menubar">
+                <li><img src="#{adminBean.contextPath}/resources/images/user-icono.png" class="icono-user"/>Administrador</li>
+                <li> <a href="javascript:history.back()"><img src="#{adminBean.contextPath}/resources/images/back-icono.png" class="icono-back"/></a></li>
+            </ul>
+        </nav>
+            <div class="container">
+                <h2>Alta de Unidad de Aprendizaje</h2>
+                <h:form class="form">
+                    <div class="card">
+                        <p:outputLabel for="nombre" value="Nombre: " />
+                        <p:inputText id="nombre" value="#{adminBean.unidadaprendizaje.nombre}" required="true"/>
+                    </div>
+
+                    <div class="card">
+                        <p:outputLabel for="horasClase" value="Horas de clase: " />
+                        <p:inputText id="horasClase" value="#{adminBean.unidadaprendizaje.horasClase}" required="true"/>
+                    </div>
+
+                    <div class="card">
+                        <p:outputLabel for="horasTaller" value="Horas de Taller: " />
+                        <p:inputText id="horasTaller" value="#{adminBean.unidadaprendizaje.horasTaller}" required="true" validatorMessage="RFC debe tener exactamente 13 caracteres" />
+                    </div>
+
+                    <div class="card">
+                        <p:outputLabel for="horasLab" value="Horas de laboratorio:" />
+                        <p:inputText id="horasLab" value="#{adminBean.unidadaprendizaje.horasLab}" required="true" />
+                    </div>
+
+                    <p:commandButton id="button" value="Dar de alta" action="#{adminBean.saveUnidad}" ajax="false" resetValues="true"/>
+                    <p:growl id="messages" showDetail="true" />
+                </h:form>
+            </div> 
+        </div>
+    </h:body>
+
+</html>

@@ -31,4 +31,12 @@ public class FacadeUnidadaprendizaje {
     public List<Unidadaprendizaje> obtenerUnidadesaprendizaje() {
         return delegateUnidadaprendizaje.obtenerUnidadesaprendizaje();
     }
+    
+    public void asignarProfesor(int idProfesor, int idUnidadAprendizaje){
+        delegateUnidadaprendizaje.asignarProfesor(idProfesor, idUnidadAprendizaje);
+    }
+    
+    public void deleteProfesorFromUA(int idProfesor, int idUnidadAprendizaje){
+        delegateUnidadaprendizaje.removeProfesor(idProfesor, idUnidadAprendizaje);
+    }
 }

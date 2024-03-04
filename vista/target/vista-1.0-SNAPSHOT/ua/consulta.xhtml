@@ -34,6 +34,18 @@
                     <h:outputText value="#{unidad.nombre}"/>
                 </p:column>
                 
+                <p:column headerText="H. Clase" styleClass="table-column">
+                    <h:outputText value="#{unidad.horasClase}"/>
+                </p:column>
+                
+                <p:column headerText="H. Taller" styleClass="table-column">
+                    <h:outputText value="#{unidad.horasTaller}"/>
+                </p:column>
+                
+                <p:column headerText="H. Lab." styleClass="table-column">
+                    <h:outputText value="#{unidad.horasLab}"/>
+                </p:column>
+                
                 <p:column styleClass="table-column">
                     <p:commandLink value="Profesores" 
                                    action="#{unidadAprendizajeBean.viewUnidadAprendizaje(unidad)}"/>

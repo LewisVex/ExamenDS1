@@ -6,6 +6,7 @@
 package mx.monkeysoft.delegate;
 
 import java.util.List;
+import mx.monkeysoft.entidad.Profesor;
 import mx.monkeysoft.entidad.Unidadaprendizaje;
 import mx.monkeysoft.integracion.ServiceLocator;
 
@@ -37,5 +38,13 @@ public class DelegateUnidadaprendizaje {
     
     public List<Unidadaprendizaje> obtenerUnidadesaprendizaje() {
         return ServiceLocator.getInstanceUnidadaprendizajeDAO().findAll();
+    }
+    
+    public void asignarProfesor(int idProfesor, int idUnidadAprendizaje){
+        ServiceLocator.getInstanceProfesorDao().registerProfesor(idProfesor, idUnidadAprendizaje);
+    }
+    
+    public void removeProfesor(int idProfesor, int idUnidadaprendizaje) {
+        ServiceLocator.getInstanceProfesorDao().deleteFromRegistroProfesor(idProfesor, idUnidadaprendizaje);
     }
 }
