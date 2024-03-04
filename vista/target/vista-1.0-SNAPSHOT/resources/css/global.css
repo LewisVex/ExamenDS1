@@ -25,6 +25,8 @@ body {
 }
 
 a.glass {
+    font-weight: 800;
+    text-decoration: none;
     transition: background-color 125ms ease-in;
 }
 

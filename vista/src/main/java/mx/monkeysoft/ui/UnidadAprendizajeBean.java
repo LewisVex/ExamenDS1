@@ -5,12 +5,14 @@
  */
 package mx.monkeysoft.ui;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import mx.monkeysoft.entidad.Profesor;
 import mx.monkeysoft.helper.UnidadaprendizajeHelper;
 import mx.monkeysoft.entidad.Unidadaprendizaje;
@@ -29,7 +31,6 @@ public class UnidadAprendizajeBean implements Serializable {
     private List<Unidadaprendizaje> unidades;
     private Unidadaprendizaje unidadAprendizaje;
     private List<Profesor> profesores;
-    private Profesor profesor;
     private int profidasignar;
 
     private ProfesorHelper profesorHelper;
@@ -40,7 +41,15 @@ public class UnidadAprendizajeBean implements Serializable {
         unidades = unidadHelper.getAll();
         unidadAprendizaje = new Unidadaprendizaje();
         profesorHelper = new ProfesorHelper();
+        profesores = null;
     }
+    
+    public void validate() throws IOException {
+    if (profesores == null) {
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        externalContext.redirect(externalContext.getRequestContextPath() + "/ua/consulta.xhtml");
+    }
+}
 
     public List<Unidadaprendizaje> getUnidades() {
         refreshUnidades();
@@ -72,14 +81,6 @@ public class UnidadAprendizajeBean implements Serializable {
 
     public List<Profesor> getProfesores() {
         return profesores;
-    }
-
-    public Profesor getProfesor() {
-        return this.profesor;
-    }
-
-    public void setProfesor(Profesor prof) {
-        this.profesor = prof;
     }
 
     //Este método debería regresar los profesores no inscritos a la UA
