@@ -4,30 +4,11 @@
     justify-content: center;
     padding:30px;
     width:auto;
-    height:75vh;
     align-items: center;
 }
-
-body{
-            background-image: url('#{adminBean.contextPath}/resources/images/background.jpg');
-            background-color: rgba(128, 128, 128, 0.5);
-            background-position: top;
-            background-size: cover;
-        }
-
-.overlay-dark{
-        position: absolute;
-        left:0;
-        top: 0;
-        width:100%;
-        height:100vh;
-        background-color: rgba(52,90,90,0.6);
-    }
             
 .form{
     width:50%;
-    background-color: #eee;
-    border-radius: 20px;
     padding:20px;
     display: flex;
     flex-direction: column;

@@ -1,0 +1,39 @@
+.ui-datatable.table,
+.ui-datatable.table th,
+.ui-datatable.table tbody,
+.ui-datatable.table tr,
+.ui-datatable.table td {
+    border: none;
+    background: none;
+}
+
+.table {
+    padding: 20px;
+    border-radius: 10px;
+    font-family: inherit;
+}
+
+.ui-datatable.table th {
+    font-size: 20px;
+    color: black;
+    text-shadow: none;
+    text-align: left;
+    box-shadow: none;            
+}
+
+.ui-datatable.table td {
+    padding: 10px 15px;
+    color: black;
+}
+
+/* Th de la columna que se está ordenando */
+
+.ui-datatable th.ui-sortable-column {
+    border-radius: 5px;
+    transition: background-color 125ms ease-in;
+}
+
+.ui-datatable th.ui-sortable-column.ui-state-active,
+.ui-datatable th.ui-sortable-column:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+}

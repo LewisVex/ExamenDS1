@@ -39,8 +39,6 @@ public class LoginBeanUI implements Serializable{
     }
 
      public String login() throws IOException{
-        // cambiar URL de la página de inicio dependiendo si es admin o profesor
-        String appURL = "/profesores/consulta?faces-redirect=true";
         // los atributos de usuario vienen del xhtml 
         Users us= new Users();
         
@@ -55,9 +53,6 @@ public class LoginBeanUI implements Serializable{
             } else if("prof".equals(usuario.getRol())){
                 return "/profesores/consulta?faces-redirect=true";
             }
-            
-//            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Bien:", "Bien"));
-//            return appURL;
             
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario o contraseña incorrecta:", "Intente de nuevo"));          

@@ -7,43 +7,27 @@
       >
 
     <h:head>
-        <h:outputStylesheet library="css" name="inter.css" />
+        <title>Login</title>
+        <link rel="shortcut icon" href="#{adminBean.contextPath}/favicon.ico"/>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet library="css" name="inter.css" />
+        <h:outputStylesheet library="css" name="global.css" />
+        <h:outputStylesheet library="css" name="button.css" />
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <style>
-            body{
-                background-color: rgba(128, 128, 128, 0.5);
-                background-position: top;
-                background-size: cover;
-                background-image: url('./resources/images/background.jpg');
-            }
-            
-            .overlay-dark{
-                position: absolute;
-                top: 0;
-                left: 0;
-                width:100%;
-                height:100vh;
-                background-color: rgba(128,128,128,0.3);
-            }
             
             div.login{
-                position: absolute;
-                top:0;
-                bottom: 0;
-                left: 0;
-                right: 0;
                 height: fit-content;
-                width: 25%;
-                padding: 25px;
-                margin: auto;
-                background: white;
-                border-radius: 5px;
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                width: fit-content;
+                max-width: 100%;
+                padding: 25px 45px;
+                margin-inline: auto;
             }
+            
             .logo{
                 width: 150px;
             }
+            
             .form-control:focus{
                 border-color: #007738;
             }
@@ -55,6 +39,8 @@
             
             .panel-header{
                 text-align: center;
+                pointer-events: none;
+                user-select: none;
             }
             
             .panel-body{
@@ -65,9 +51,8 @@
             }
             
             h1{
-              
-                z-index: 9999;
-                padding-top: 50px;
+                margin-top: 25px;
+                margin-bottom: 45px;
                 text-align: center;
                 font-weight: 600;
                 color: white;
@@ -76,7 +61,6 @@
             }
            
         </style>
-        <title>Login</title>
     </h:head>
 
     <h:body>
@@ -85,16 +69,16 @@
             <h:form class="formulario">
                 <p:messages id="messages" showDetail="true" closable="true">    
                 </p:messages>
-                    <div class="login">
+                    <div class="login glass">
                     <div class="panel-header">
                         <p:graphicImage url="resources/MonkeySoft_logo.png" class="logo" />
                     </div>
                     <div class="panel-body">
                         <div class=" form-group">
-                            <p:inputText class ="form-control" placeholder ="Correo:" autocomplete="false" value ="#{loginUI.usuario.correo}" />
+                            <p:inputText class ="form-control" placeholder ="Correo" autocomplete="false" value ="#{loginUI.usuario.correo}" />
                         </div>
                         <div class="form-group">
-                            <p:password class ="form-control" placeholder="Contraseña: " value="#{loginUI.usuario.contrasena}" />
+                            <p:password class ="form-control" placeholder="Contraseña" value="#{loginUI.usuario.contrasena}" />
                         </div>
                         
                         <p:commandButton update="messages" class = "btn btn-success" value ="Acceder" action="#{loginUI.login()}" />

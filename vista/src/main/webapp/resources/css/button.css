@@ -1,0 +1,57 @@
+/* Botón */
+
+.ui-button.btn {
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+    transform: scale(1);
+    transition: background-color 125ms ease-in, transform 125ms ease-in;
+}
+
+.ui-button.btn:active {
+    outline: none !important;
+    transform: scale(0.97);
+}
+
+/* Botón para eliminar */
+
+.ui-button.btn-delete {
+    background: hsl(0, 50%, 50%);
+}
+
+.ui-button.btn-delete:hover {
+    background: hsl(0, 75%, 55%);
+}
+
+.ui-button.btn-delete:focus {
+    outline-color: hsl(0, 50%, 40%);
+}
+
+.ui-button.btn-delete:active {
+    background-color: hsl(0, 50%, 40%);
+}
+
+
+/* Botón para agregar / acceder */
+
+.ui-button.btn-success {
+    background: hsl(120, 50%, 30%);
+}
+
+.ui-button.btn-success:hover {
+    background: hsl(120, 55%, 35%);
+    outline: none;
+}
+
+.ui-button.btn-success:focus {
+    outline-color: hsl(120, 50%, 25%);
+}
+
+.ui-button.btn-success:active {
+    background-color: hsl(120, 50%, 25%);
+}

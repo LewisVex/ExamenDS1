@@ -7,34 +7,29 @@
 
     <h:head>
         <title>Alta Profesores</title>
-        <h:outputStylesheet library="css" name="alta.css" />
+        <link rel="shortcut icon" href="#{adminBean.contextPath}/favicon.ico"/>
         <h:outputStylesheet library="css" name="inter.css" />
+        <h:outputStylesheet library="css" name="global.css" />
+        <h:outputStylesheet library="css" name="button.css" />
+        <h:outputStylesheet library="css" name="alta.css" />
         <h:outputStylesheet library="css" name="navBarBack.css"/>
     </h:head>
 
     <style>
-
+        
         .ui-inputfield, .ui-inputtext {
             width: 70%;
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #aaa;
+            box-shadow: none;
         }
 
         .ui-button {
-            background: #307132 !important;
-            color: white;
             padding: 10px 24px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
             width:40%;
             min-width: 150px;
             align-self: center;
-        }
-
-        .ui-button:hover {
-            background-color: #1f4521 !important;
         }
         
     </style>
@@ -50,7 +45,7 @@
         </nav>
             <div class="container">
                 <h2>Alta de profesores</h2>
-                <h:form class="form">
+                <h:form class="form glass">
                     <div class="card">
                         <p:outputLabel for="nombre" value="Nombre: " />
                         <p:inputText id="nombre" value="#{adminBean.profesor.nombre}" required="true"/>
@@ -87,7 +82,7 @@
                         <p:selectBooleanCheckbox id="admin" value="#{adminBean.isadmin}" />
                     </div>
 
-                    <p:commandButton id="button" value="Dar de alta" action="#{adminBean.saveRegistro()}" ajax="false" resetValues="true"/>
+                    <p:commandButton id="button" value="Dar de alta" action="#{adminBean.saveRegistro()}" ajax="false" resetValues="true" class="btn btn-success"/>
                     <p:growl id="messages" showDetail="true" />
                 </h:form>
             </div> 
