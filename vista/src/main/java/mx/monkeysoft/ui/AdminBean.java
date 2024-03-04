@@ -113,6 +113,7 @@ public class AdminBean implements Serializable {
     public String saveUnidad(){
         try{
             FacadeUnidadaprendizaje fua = new FacadeUnidadaprendizaje();
+            this.ua.setNombre(this.ua.getNombre().toUpperCase());
             fua.guardarUnidadaprendizaje(this.ua);
             return "menuOpciones?faces-redirect=true";
         }catch(Exception e){

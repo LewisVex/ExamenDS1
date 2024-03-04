@@ -36,18 +36,18 @@
         .ui-button:hover {
             background-color: #1f4521 !important;
         }
-        
+
     </style>
 
 
     <h:body>
         <div class="overlay-dark">
-        <nav class="nav">
-            <ul class="my-menubar">
-                <li><img src="#{adminBean.contextPath}/resources/images/user-icono.png" class="icono-user"/>Administrador</li>
-                <li> <a href="javascript:history.back()"><img src="#{adminBean.contextPath}/resources/images/back-icono.png" class="icono-back"/></a></li>
-            </ul>
-        </nav>
+            <nav class="nav">
+                <ul class="my-menubar">
+                    <li><img src="#{adminBean.contextPath}/resources/images/user-icono.png" class="icono-user"/>Administrador</li>
+                    <li> <a href="javascript:history.back()"><img src="#{adminBean.contextPath}/resources/images/back-icono.png" class="icono-back"/></a></li>
+                </ul>
+            </nav>
             <div class="container">
                 <h2>Alta de Unidad de Aprendizaje</h2>
                 <h:form class="form glass">
@@ -58,17 +58,17 @@
 
                     <div class="card">
                         <p:outputLabel for="horasClase" value="Horas de clase: " />
-                        <p:inputText id="horasClase" value="#{adminBean.unidadaprendizaje.horasClase}" required="true"/>
+                        <p:inputNumber id="horasClase" value="#{adminBean.unidadaprendizaje.horasClase}" decimalPlaces="0" required="true"/>
                     </div>
 
                     <div class="card">
                         <p:outputLabel for="horasTaller" value="Horas de Taller: " />
-                        <p:inputText id="horasTaller" value="#{adminBean.unidadaprendizaje.horasTaller}" required="true" validatorMessage="RFC debe tener exactamente 13 caracteres" />
+                        <p:inputNumber id="horasTaller" value="#{adminBean.unidadaprendizaje.horasTaller}" decimalPlaces="0" required="true" validatorMessage="RFC debe tener exactamente 13 caracteres" />
                     </div>
 
                     <div class="card">
                         <p:outputLabel for="horasLab" value="Horas de laboratorio:" />
-                        <p:inputText id="horasLab" value="#{adminBean.unidadaprendizaje.horasLab}" required="true" />
+                        <p:inputNumber id="horasLab" value="#{adminBean.unidadaprendizaje.horasLab}" decimalPlaces="0" required="true" />
                     </div>
 
                     <p:commandButton id="button" value="Dar de alta" action="#{adminBean.saveUnidad}" ajax="false" resetValues="true"/>

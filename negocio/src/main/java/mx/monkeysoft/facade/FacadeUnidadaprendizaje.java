@@ -39,4 +39,8 @@ public class FacadeUnidadaprendizaje {
     public void deleteProfesorFromUA(int idProfesor, int idUnidadAprendizaje){
         delegateUnidadaprendizaje.removeProfesor(idProfesor, idUnidadAprendizaje);
     }
+    
+    public List<Unidadaprendizaje> getByProf(int idProf){
+        return delegateUnidadaprendizaje.getByProf(idProf);
+    }
 }

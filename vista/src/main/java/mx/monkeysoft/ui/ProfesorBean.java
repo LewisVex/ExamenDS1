@@ -6,6 +6,7 @@
 package mx.monkeysoft.ui;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -13,7 +14,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import mx.monkeysoft.entidad.Profesor;
+import mx.monkeysoft.entidad.Unidadaprendizaje;
 import mx.monkeysoft.helper.ProfesorHelper;
+import mx.monkeysoft.helper.UnidadaprendizajeHelper;
 
 /**
  *
@@ -25,13 +28,31 @@ import mx.monkeysoft.helper.ProfesorHelper;
 public class ProfesorBean implements Serializable {
     private List<Profesor> profesores;
     private ProfesorHelper profesorHelper;
+    private Profesor prof;
+    private List<Unidadaprendizaje> unidades;
+    private UnidadaprendizajeHelper uah;
     
     @PostConstruct
     public void init() {
         profesorHelper = new ProfesorHelper();
         profesores = profesorHelper.getStandard();
+        uah = new UnidadaprendizajeHelper();
     }
-
+    
+    public Profesor getProf(){
+        return this.prof;
+    }
+    
+    public void setProf(Profesor profe){
+        this.prof = profe;
+    }
+    
+    public List<Unidadaprendizaje> getUnidades(){
+        refreshProfesor();
+        return this.unidades;
+    }
+    
+    
     // Getter para la lista de usuarios
     public List<Profesor> getProfesores() {
         return profesores;
@@ -41,5 +62,15 @@ public class ProfesorBean implements Serializable {
         profesores.remove(p);
         profesorHelper.remove(p);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "El profesor se eliminó correctamente"));
+    }
+    
+    public String viewProfesorUnidades(Profesor p){
+        this.prof = p;
+        this.unidades = uah.getByProf(this.prof.getIdProfesor());
+        return "/profesores/unidades";
+    }
+    
+    public void refreshProfesor() {
+        this.unidades = uah.getByProf(this.prof.getIdProfesor());
     }
 }

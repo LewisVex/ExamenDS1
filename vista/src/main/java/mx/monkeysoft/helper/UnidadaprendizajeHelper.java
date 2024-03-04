@@ -24,4 +24,8 @@ public class UnidadaprendizajeHelper implements Serializable {
     public List<Unidadaprendizaje> getAll() {
         return ServiceFacadeLocator.getInstanceFacadeUnidadaprendizaje().obtenerUnidadesaprendizaje();
     }
+    
+    public List<Unidadaprendizaje> getByProf(int idProf){
+        return ServiceFacadeLocator.getInstanceFacadeUnidadaprendizaje().getByProf(idProf);
+    }
 }

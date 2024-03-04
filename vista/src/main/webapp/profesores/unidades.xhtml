@@ -152,7 +152,7 @@
                 background: hsl(90, 75%, 35%);
             }
         </style>
-        <title>Profesores - #{unidadAprendizajeBean.unidadAprendizaje.nombre}</title>
+        <title>Unidades - #{profesorBean.prof.nombre} #{profesorBean.prof.apellido}</title>
     </h:head>
 
     <h:body>
@@ -164,47 +164,30 @@
                     <li><a href="javascript:history.back()"><img src="#{adminBean.contextPath}/resources/images/back-icono.png" class="icono-back"/></a></li>
                 </ul>
             </nav>
-            <h1 class="title">Profesores Impartiendo - #{unidadAprendizajeBean.unidadAprendizaje.nombre}</h1>
+            <h1 class="title">Clases impartidas - #{profesorBean.prof.nombre} #{profesorBean.prof.apellido}</h1>
             <main>
                 <h:form id="form" class="glass card">
                     <p:growl id="message" showDetail="true"/>
 
-                    <p:dataTable id="dt-profesoresUnidad" var="profesorUnidad" sortBy="#{profesorUnidad.nombre}" value="#{unidadAprendizajeBean.profesores}" styleClass="table">
-                        <p:column sortBy="#{profesorUnidad.nombre}" headerText="Nombre" styleClass="table-column">
-                            <h:outputText value="#{profesorUnidad.nombre}"/>
+                    <p:dataTable id="dt-profesoresUnidad" var="unidad" sortBy="#{unidad.nombre}" value="#{profesorBean.unidades}" styleClass="table">
+                        <p:column sortBy="#{unidad.nombre}" headerText="Nombre" styleClass="table-column">
+                            <h:outputText value="#{unidad.nombre}"/>
                         </p:column>
 
-                        <p:column sortBy="#{profesorUnidad.apellido}" headerText="Apellido" styleClass="table-column">
-                            <h:outputText value="#{profesorUnidad.apellido}"/>
+                        <p:column headerText="H. Clase" styleClass="table-column">
+                            <h:outputText value="#{unidad.horasClase}"/>
                         </p:column>
 
-                        <p:column styleClass="table-column">
-                            <p:commandButton update="form:dt-profesoresUnidad form:message"
-                                             value="Eliminar" 
-                                             action="#{unidadAprendizajeBean.removeProfesor(profesorUnidad)}"
-                                             styleClass="btn btn-delete"
-                                             oncomplete="location.reload();">
-                            </p:commandButton>
+                        <p:column headerText="H. Taller" styleClass="table-column">
+                            <h:outputText value="#{unidad.horasTaller}"/>
+                        </p:column>
+
+                        <p:column headerText="H. Lab" styleClass="table-column">
+                            <h:outputText value="#{unidad.horasLab}"/>
                         </p:column>
                     </p:dataTable>
                 </h:form>
-                <aside>
-                    <h2 class="title">Asignar Profesor</h2>
-                    <h:form>
-                        <h:selectOneMenu value="#{unidadAprendizajeBean.profidasignar}">
-                            <f:selectItems value="#{unidadAprendizajeBean.profesoresDisponibles}" var="profesor" itemLabel="#{profesor.nombre} #{profesor.apellido}" itemValue="#{profesor.idProfesor}" />
-                        </h:selectOneMenu>
 
-                        <p:commandButton update="form:dt-profesoresUnidad form:message"
-                                         value="Agregar" 
-                                         styleClass="btn btn-add"
-                                         action="#{unidadAprendizajeBean.asignarUnidad()}"
-                                         oncomplete="location.reload();"
-                                         disabled="#{empty unidadAprendizajeBean.profidasignar}">
-                        </p:commandButton>
-                    </h:form>
-                    <h:link value="Unidades de Aprendizaje" outcome="/ua/consulta" class="glass returnLink" />
-                </aside>
             </main>
         </div>
     </h:body>

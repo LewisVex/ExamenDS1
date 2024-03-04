@@ -8,10 +8,9 @@ package mx.monkeysoft.ui;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
+import javax.faces.bean.ViewScoped;
 import mx.monkeysoft.entidad.Profesor;
 import mx.monkeysoft.helper.UnidadaprendizajeHelper;
 import mx.monkeysoft.entidad.Unidadaprendizaje;
@@ -44,7 +43,12 @@ public class UnidadAprendizajeBean implements Serializable {
     }
 
     public List<Unidadaprendizaje> getUnidades() {
+        refreshUnidades();
         return unidades;
+    }
+
+    public void refreshUnidades() {
+        unidades = unidadHelper.getAll();
     }
 
     //Este método consigue los profesores inscritos a las UA
@@ -81,12 +85,14 @@ public class UnidadAprendizajeBean implements Serializable {
     //Este método debería regresar los profesores no inscritos a la UA
     public List<Profesor> getProfesoresDisponibles() {
         List<Profesor> profesoresDisponibles = profesorHelper.getStandard();
-        profesoresDisponibles.removeAll(profesores);
+        if (this.profesores != null) {
+            profesoresDisponibles.removeAll(profesores);
+        }
         return profesoresDisponibles;
     }
 
     //Este método debería eliminar los profesores de una UA específica, no borrarlos de la BD sino eliminarlos de RegistroProfesor.
-    public void removeProfesor(Profesor profe){
+    public void removeProfesor(Profesor profe) {
         FacadeUnidadaprendizaje fua = new FacadeUnidadaprendizaje();
         fua.deleteProfesorFromUA(profe.getIdProfesor(), this.unidadAprendizaje.getIdUnidadAprendizaje());
     }
