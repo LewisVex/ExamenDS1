@@ -5,8 +5,10 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Alta Unidad de Aprendizaje</title>
-        <h:outputStylesheet library="css" name="alta.css" />
         <h:outputStylesheet library="css" name="inter.css" />
+        <h:outputStylesheet library="css" name="global.css" />
+        <h:outputStylesheet library="css" name="button.css" />
+        <h:outputStylesheet library="css" name="alta.css" />
         <h:outputStylesheet library="css" name="navBarBack.css"/>
     </h:head>
 
@@ -48,7 +50,7 @@
         </nav>
             <div class="container">
                 <h2>Alta de Unidad de Aprendizaje</h2>
-                <h:form class="form">
+                <h:form class="form glass">
                     <div class="card">
                         <p:outputLabel for="nombre" value="Nombre: " />
                         <p:inputText id="nombre" value="#{adminBean.unidadaprendizaje.nombre}" required="true"/>
